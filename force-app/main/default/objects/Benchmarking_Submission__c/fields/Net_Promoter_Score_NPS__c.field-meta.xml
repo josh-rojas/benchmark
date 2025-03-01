@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Net_Promoter_Score_NPS__c</fullName>
-    <description>Net Promoter Score (NPS)</description>
+    <description>Net Promoter Score (NPS) from -100 to 100</description>
     <externalId>false</externalId>
     <label>Net Promoter Score (NPS)</label>
     <precision>3</precision>
@@ -10,10 +10,4 @@
     <trackTrending>false</trackTrending>
     <type>Number</type>
     <unique>false</unique>
-    <valueSet>
-        <valueSetDefinition>
-            <minValue>-100</minValue>
-            <maxValue>100</maxValue>
-        </valueSetDefinition>
-    </valueSet>
-</CustomField> 
+</CustomField>

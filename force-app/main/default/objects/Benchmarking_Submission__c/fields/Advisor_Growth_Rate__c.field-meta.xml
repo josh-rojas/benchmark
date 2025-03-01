@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Advisor_Growth_Rate__c</fullName>
+    <description>Percentage growth in number of advisors - automatically calculated</description>
+    <externalId>false</externalId>
+    <formula>IF(Number_of_Advisors__c > 0 &amp;&amp; Number_of_Advisors__c - Number_of_New_Advisors__c > 0, (Number_of_New_Advisors__c / (Number_of_Advisors__c - Number_of_New_Advisors__c)) * 100, null)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Advisor Growth Rate</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

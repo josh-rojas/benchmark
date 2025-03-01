@@ -1,0 +1,144 @@
+/* Beacon Benchmarking Platform - Custom Styles */
+
+/* Custom Colors */
+:root {
+    --beacon-primary: #0076d6;
+    --beacon-secondary: #2a3a4a;
+    --beacon-accent: #62b5e5;
+    --beacon-light: #f5f7fa;
+    --beacon-dark: #1a2a3a;
+    --beacon-success: #4caf50;
+    --beacon-warning: #ff9800;
+    --beacon-error: #f44336;
+}
+
+/* Global Styles */
+.benchmarking-container {
+    font-family: 'Salesforce Sans', Arial, sans-serif;
+    color: var(--beacon-dark);
+}
+
+/* Header Styling */
+.benchmarking-header {
+    background-color: var(--beacon-primary);
+    color: white;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+}
+
+.benchmarking-title {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+/* Card Customizations */
+.benchmarking-card {
+    border: 1px solid #e0e5ee;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease-in-out;
+}
+
+.benchmarking-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styling */
+.benchmarking-btn {
+    background-color: var(--beacon-primary);
+    color: white;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.benchmarking-btn:hover {
+    background-color: var(--beacon-accent);
+}
+
+.benchmarking-btn-secondary {
+    background-color: var(--beacon-secondary);
+}
+
+/* Status Indicators */
+.status-submitted {
+    color: var(--beacon-primary);
+    font-weight: bold;
+}
+
+.status-processed {
+    color: var(--beacon-success);
+    font-weight: bold;
+}
+
+.status-error {
+    color: var(--beacon-error);
+    font-weight: bold;
+}
+
+/* Form Elements */
+.benchmarking-input {
+    border: 1px solid #d8dde6;
+    border-radius: 4px;
+    padding: 0.5rem;
+    transition: border-color 0.2s ease;
+}
+
+.benchmarking-input:focus {
+    border-color: var(--beacon-primary);
+    outline: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .benchmarking-header {
+        padding: 0.75rem;
+    }
+    
+    .benchmarking-title {
+        font-size: 1.25rem;
+    }
+}
+
+/* Benchmark Display Styles */
+.benchmark-metric-name {
+    font-weight: 600;
+    color: var(--beacon-secondary);
+}
+
+.benchmark-value {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.benchmark-comparison {
+    font-size: 0.9rem;
+    color: #706e6b;
+}
+
+.benchmark-above-average {
+    color: var(--beacon-success);
+}
+
+.benchmark-below-average {
+    color: var(--beacon-error);
+}
+
+/* Submission Form Styling */
+.submission-section {
+    background-color: var(--beacon-light);
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.submission-section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--beacon-secondary);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e0e5ee;
+    margin-bottom: 1rem;
+} 

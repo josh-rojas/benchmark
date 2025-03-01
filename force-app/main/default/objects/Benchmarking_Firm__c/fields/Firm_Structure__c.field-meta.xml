@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Firm_Structure__c</fullName>
+    <description>Organizational structure of the firm</description>
+    <externalId>false</externalId>
+    <label>Firm Structure</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Independent</fullName>
+                <default>false</default>
+                <label>Independent</label>
+            </value>
+            <value>
+                <fullName>Wirehouse</fullName>
+                <default>false</default>
+                <label>Wirehouse</label>
+            </value>
+            <value>
+                <fullName>Bank-owned</fullName>
+                <default>false</default>
+                <label>Bank-owned</label>
+            </value>
+            <value>
+                <fullName>Insurance-owned</fullName>
+                <default>false</default>
+                <label>Insurance-owned</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

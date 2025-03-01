@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Required_Fields</fullName>
+    <active>true</active>
+    <description>Ensures all required fields are filled before submission</description>
+    <errorConditionFormula>AND(
+        ISPICKVAL(Submission_Status__c, "Submitted"),
+        OR(
+            ISBLANK(Submission_Year__c),
+            ISBLANK(Total_Revenue__c),
+            ISBLANK(AUM__c),
+            ISBLANK(Total_Operating_Expenses__c),
+            ISBLANK(Number_of_Advisors__c),
+            ISBLANK(Number_of_Clients__c)
+        )
+    )</errorConditionFormula>
+    <errorDisplayField>Submission_Status__c</errorDisplayField>
+    <errorMessage>Please fill in all required fields before submitting: Submission Year, Total Revenue, AUM, Total Operating Expenses, Number of Advisors, and Number of Clients.</errorMessage>
+</ValidationRule> 

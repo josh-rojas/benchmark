@@ -11,5 +11,5 @@
     <description>Stores benchmarking data submissions from firms</description>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
-    <sharingModel>Private</sharingModel>
-</CustomObject> 
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Profile for community users participating in the benchmarking platform</description>
+    <userLicense>Customer Community Plus</userLicense>
+    <custom>true</custom>
+    
+    <!-- Object Permissions -->
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Benchmarking_Submission__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Benchmarking_Firm__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Benchmark_Result__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    
+    <!-- Field-Level Security for Benchmarking_Firm__c -->
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Benchmarking_Firm__c.Firm_Identifier__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Benchmarking_Firm__c.Industry_Segment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Benchmarking_Firm__c.Firm_Size_AUM_Range__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Benchmarking_Firm__c.Geographic_Region__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Benchmarking_Firm__c.Business_Model__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Benchmarking_Firm__c.Firm_Structure__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    
+    <!-- Field-Level Security for Benchmarking_Submission__c (Required Fields) -->
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Benchmarking_Submission__c.Submission_Year__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Benchmarking_Submission__c.Total_Revenue__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Benchmarking_Submission__c.AUM__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Benchmarking_Submission__c.Total_Operating_Expenses__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Benchmarking_Submission__c.Number_of_Advisors__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Benchmarking_Submission__c.Number_of_Clients__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    
+    <!-- Example of other fields from Benchmarking_Submission__c (non-required) -->
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Benchmarking_Submission__c.Recurring_Revenue__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Benchmarking_Submission__c.Non_Recurring_Revenue__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    
+    <!-- Status field with limited editability -->
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Benchmarking_Submission__c.Submission_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    
+    <!-- User Permissions -->
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>RunFlow</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewRoles</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewSetup</name>
+    </userPermissions>
+</Profile> 

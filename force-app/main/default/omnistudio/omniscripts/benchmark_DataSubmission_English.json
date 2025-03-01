@@ -1,0 +1,984 @@
+{
+    "type": "benchmark",
+    "name": "DataSubmission",
+    "language": "English",
+    "dataPackType": "OmniScript",
+    "version": "1.0",
+    "isLinkedToExternalObject": false,
+    "persistentComponent": [
+        {
+            "render": false,
+            "label": "None",
+            "remoteClass": "",
+            "remoteMethod": "",
+            "remoteTimeout": 30000,
+            "remoteOptions": {
+                "buffer": false,
+                "timeout": 30000,
+                "escape": true,
+                "apexRemoteResultVar": "result.data"
+            }
+        }
+    ],
+    "masterLabel": "Benchmark Data Submission",
+    "propSetMap": {
+        "allowSaveForLater": true,
+        "cancelType": "SObject",
+        "elementTypeToHTMLTemplateMapping": {},
+        "enableActionMessage": false,
+        "enableDefaultAbort": false,
+        "errorMessage": {
+            "custom": "An error occurred during submission. Please try again or contact your administrator."
+        },
+        "extraPayloadMap": {},
+        "message": {},
+        "pubsub": false,
+        "saveButtonLabel": "Submit",
+        "cancelButtonLabel": "Cancel",
+        "saveMessage": "Data submission successful! Thank you for your contribution.",
+        "saveURLNewWindow": false,
+        "saveURLTarget": "",
+        "showPersistentComponent": [
+            true,
+            false
+        ],
+        "showSaveButton": true,
+        "showCancelButton": true,
+        "saveEventName": "submit",
+        "theme": "lightning",
+        "validationRequired": true,
+        "vizType": "card",
+        "autoSaveOnStepNext": false,
+        "autoFocus": false,
+        "bLK": false,
+        "disableUnloadWarn": false,
+        "hideStepChart": false,
+        "instructionText": "Please complete the following form to submit your firm's annual performance metrics for benchmarking. All data will be anonymized in the final benchmark reports.",
+        "knowledgeArticleTypeQueryBuilder": false,
+        "ssm": false,
+        "stepChart": {
+            "isVertical": true,
+            "selectedStep": {
+                "color": "#0070d2"
+            },
+            "activeStep": {},
+            "inactiveStep": {
+                "color": "#c9c7c5"
+            },
+            "disabledStep": {
+                "color": "#c9c7c5"
+            },
+            "theme": "lightning"
+        },
+        "wpm": false,
+        "sOVEnabled": false
+    },
+    "elements": [
+        {
+            "type": "Step",
+            "name": "FirmInformation",
+            "propSetMap": {
+                "label": "Firm Information",
+                "validationRequired": true,
+                "previousLabel": "Previous",
+                "previousWidth": 3,
+                "nextLabel": "Next",
+                "nextWidth": 3,
+                "cancelLabel": "Cancel",
+                "cancelMessage": "Are you sure?",
+                "saveLabel": "Save for later",
+                "saveMessage": "Are you sure you want to save it for later?",
+                "completeLabel": "Complete",
+                "completeMessage": "Are you sure you want to complete the script?",
+                "instruction": "Please provide basic information about your firm.",
+                "showPersistentComponent": [
+                    true,
+                    false
+                ],
+                "defaultValue": "{}",
+                "errorMessage": {
+                    "custom": ""
+                },
+                "conditionType": "Hide if False"
+            },
+            "elements": [
+                {
+                    "type": "DataRaptor Extract Action",
+                    "name": "GetFirmInformation",
+                    "propSetMap": {
+                        "label": "Retrieve Firm Information",
+                        "dataRaptor": "GetFirmIdentifier_Extract",
+                        "variableName": "firmInfo",
+                        "ignoreCache": false,
+                        "show": {
+                            "group": {
+                                "operator": "AND",
+                                "rules": []
+                            }
+                        },
+                        "disOnTplt": false,
+                        "message": {},
+                        "pubsub": false
+                    }
+                },
+                {
+                    "type": "Select",
+                    "name": "SubmissionYear",
+                    "propSetMap": {
+                        "label": "Submission Year",
+                        "required": true,
+                        "validationMessage": "Please select the year for this data submission",
+                        "controlWidth": 12,
+                        "helpText": "Select the year this data represents",
+                        "options": [
+                            {
+                                "name": "2023",
+                                "value": "2023"
+                            },
+                            {
+                                "name": "2022",
+                                "value": "2022"
+                            },
+                            {
+                                "name": "2021",
+                                "value": "2021"
+                            },
+                            {
+                                "name": "2020",
+                                "value": "2020"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "Radio",
+                    "name": "DataSharingAgreement",
+                    "propSetMap": {
+                        "label": "Data Sharing Agreement",
+                        "required": true,
+                        "options": [
+                            {
+                                "name": "I agree that the data provided can be used in anonymized benchmarking reports",
+                                "value": "true"
+                            }
+                        ],
+                        "controlWidth": 12,
+                        "helpText": "You must agree to the data sharing terms to proceed"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "Step",
+            "name": "RevenueEfficiency",
+            "propSetMap": {
+                "label": "Revenue Efficiency",
+                "validationRequired": true,
+                "previousLabel": "Previous",
+                "previousWidth": 3,
+                "nextLabel": "Next",
+                "nextWidth": 3,
+                "instruction": "Enter information about your firm's revenue efficiency metrics.",
+                "showPersistentComponent": [
+                    true,
+                    false
+                ],
+                "defaultValue": "{}"
+            },
+            "elements": [
+                {
+                    "type": "Currency",
+                    "name": "TotalRevenue",
+                    "propSetMap": {
+                        "label": "Total Revenue",
+                        "required": true,
+                        "placeholder": "$0.00",
+                        "helpText": "Total firm revenue for the selected year",
+                        "controlWidth": 12,
+                        "message": {}
+                    }
+                },
+                {
+                    "type": "Currency",
+                    "name": "RevenuePreviousYear",
+                    "propSetMap": {
+                        "label": "Revenue Previous Year",
+                        "required": false,
+                        "placeholder": "$0.00",
+                        "helpText": "Total firm revenue for the previous year",
+                        "controlWidth": 12,
+                        "message": {}
+                    }
+                },
+                {
+                    "type": "Currency",
+                    "name": "RecurringRevenue",
+                    "propSetMap": {
+                        "label": "Recurring Revenue",
+                        "required": false,
+                        "placeholder": "$0.00",
+                        "helpText": "Revenue from recurring fee arrangements (management fees, subscription fees, etc.)",
+                        "controlWidth": 12,
+                        "message": {}
+                    }
+                },
+                {
+                    "type": "Currency",
+                    "name": "NonRecurringRevenue",
+                    "propSetMap": {
+                        "label": "Non-Recurring Revenue",
+                        "required": false,
+                        "placeholder": "$0.00",
+                        "helpText": "Revenue from one-time services (planning fees, commissions, etc.)",
+                        "controlWidth": 12,
+                        "message": {}
+                    }
+                },
+                {
+                    "type": "Currency",
+                    "name": "ClientRetentionRevenue",
+                    "propSetMap": {
+                        "label": "Revenue from Existing Clients",
+                        "required": false,
+                        "placeholder": "$0.00",
+                        "helpText": "Revenue generated from existing clients (not new in this year)",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Currency",
+                    "name": "RevenueFromNewClients",
+                    "propSetMap": {
+                        "label": "Revenue from New Clients",
+                        "required": false,
+                        "placeholder": "$0.00",
+                        "helpText": "Revenue generated from clients acquired during this year",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Currency",
+                    "name": "AUM",
+                    "propSetMap": {
+                        "label": "Assets Under Management (AUM)",
+                        "required": true,
+                        "placeholder": "$0.00",
+                        "helpText": "Total assets under management at year end",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Currency",
+                    "name": "AUMPreviousYear",
+                    "propSetMap": {
+                        "label": "Assets Under Management (Previous Year)",
+                        "required": false,
+                        "placeholder": "$0.00",
+                        "helpText": "Total assets under management at previous year end",
+                        "controlWidth": 12
+                    }
+                }
+            ]
+        },
+        {
+            "type": "Step",
+            "name": "ExpenseEfficiency",
+            "propSetMap": {
+                "label": "Expense Efficiency",
+                "validationRequired": true,
+                "previousLabel": "Previous",
+                "previousWidth": 3,
+                "nextLabel": "Next",
+                "nextWidth": 3,
+                "instruction": "Enter information about your firm's expense structure.",
+                "showPersistentComponent": [
+                    true,
+                    false
+                ],
+                "defaultValue": "{}"
+            },
+            "elements": [
+                {
+                    "type": "Currency",
+                    "name": "TotalOperatingExpenses",
+                    "propSetMap": {
+                        "label": "Total Operating Expenses",
+                        "required": true,
+                        "placeholder": "$0.00",
+                        "helpText": "Total operating expenses for the selected year",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Currency",
+                    "name": "DirectExpenses",
+                    "propSetMap": {
+                        "label": "Direct Expenses",
+                        "required": false,
+                        "placeholder": "$0.00",
+                        "helpText": "Expenses directly tied to service delivery",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Currency",
+                    "name": "CompensationExpenses",
+                    "propSetMap": {
+                        "label": "Compensation Expenses",
+                        "required": false,
+                        "placeholder": "$0.00",
+                        "helpText": "Total costs related to employee compensation",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Currency",
+                    "name": "TotalAdvisorCompensation",
+                    "propSetMap": {
+                        "label": "Total Advisor Compensation",
+                        "required": false,
+                        "placeholder": "$0.00",
+                        "helpText": "Total compensation for advisors only",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Currency",
+                    "name": "OccupancyExpenses",
+                    "propSetMap": {
+                        "label": "Occupancy Expenses",
+                        "required": false,
+                        "placeholder": "$0.00",
+                        "helpText": "Expenses related to office space and facilities",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Currency",
+                    "name": "TechnologyExpenses",
+                    "propSetMap": {
+                        "label": "Technology Expenses",
+                        "required": false,
+                        "placeholder": "$0.00",
+                        "helpText": "Expenses related to technology, software, and systems",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Currency",
+                    "name": "MarketingSalesExpenses",
+                    "propSetMap": {
+                        "label": "Marketing & Sales Expenses",
+                        "required": false,
+                        "placeholder": "$0.00",
+                        "helpText": "Expenses related to marketing, sales, and business development",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Currency",
+                    "name": "OtherOperatingExpenses",
+                    "propSetMap": {
+                        "label": "Other Operating Expenses",
+                        "required": false,
+                        "placeholder": "$0.00",
+                        "helpText": "Any other operating expenses not categorized above",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Currency",
+                    "name": "ClientAcquisitionCost",
+                    "propSetMap": {
+                        "label": "Client Acquisition Cost",
+                        "required": false,
+                        "placeholder": "$0.00",
+                        "helpText": "Average cost to acquire a new client",
+                        "controlWidth": 12
+                    }
+                }
+            ]
+        },
+        {
+            "type": "Step",
+            "name": "AdvisorEfficiency",
+            "propSetMap": {
+                "label": "Advisor Efficiency",
+                "validationRequired": true,
+                "previousLabel": "Previous",
+                "previousWidth": 3,
+                "nextLabel": "Next",
+                "nextWidth": 3,
+                "instruction": "Enter information about your advisory team and their efficiency metrics.",
+                "showPersistentComponent": [
+                    true,
+                    false
+                ],
+                "defaultValue": "{}"
+            },
+            "elements": [
+                {
+                    "type": "Number",
+                    "name": "NumberOfAdvisors",
+                    "propSetMap": {
+                        "label": "Number of Advisors",
+                        "required": true,
+                        "placeholder": "0",
+                        "helpText": "Total number of advisors at year end",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "NumberOfNewAdvisors",
+                    "propSetMap": {
+                        "label": "Number of New Advisors",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Number of advisors hired in the selected year",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "NumberOfAdvisorsLeft",
+                    "propSetMap": {
+                        "label": "Number of Advisors Who Left",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Number of advisors who left the firm in the selected year",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "AverageAdvisorTenure",
+                    "propSetMap": {
+                        "label": "Average Advisor Tenure (Years)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Average number of years advisors have been with the firm",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "NumberOfSupportStaff",
+                    "propSetMap": {
+                        "label": "Number of Support Staff",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Total number of non-advisor staff",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "NumberOfClients",
+                    "propSetMap": {
+                        "label": "Number of Clients",
+                        "required": true,
+                        "placeholder": "0",
+                        "helpText": "Total number of clients at year end",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "NumberOfClientsPreviousYear",
+                    "propSetMap": {
+                        "label": "Number of Clients (Previous Year)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Total number of clients at previous year end",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "NumberOfNewClients",
+                    "propSetMap": {
+                        "label": "Number of New Clients",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Number of new clients acquired in the selected year",
+                        "controlWidth": 12
+                    }
+                }
+            ]
+        },
+        {
+            "type": "Step",
+            "name": "OperatingEfficiency",
+            "propSetMap": {
+                "label": "Operating Efficiency",
+                "validationRequired": true,
+                "previousLabel": "Previous",
+                "previousWidth": 3,
+                "nextLabel": "Next",
+                "nextWidth": 3,
+                "instruction": "Enter information about your firm's operating efficiency metrics.",
+                "showPersistentComponent": [
+                    true,
+                    false
+                ],
+                "defaultValue": "{}"
+            },
+            "elements": [
+                {
+                    "type": "Number",
+                    "name": "GrossProfitMargin",
+                    "propSetMap": {
+                        "label": "Gross Profit Margin (%)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Gross profit as a percentage of revenue",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "NetProfitMargin",
+                    "propSetMap": {
+                        "label": "Net Profit Margin (%)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Net profit as a percentage of revenue",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "ExpenseRatio",
+                    "propSetMap": {
+                        "label": "Expense Ratio (%)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Operating expenses as a percentage of revenue",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "CompensationRatio",
+                    "propSetMap": {
+                        "label": "Compensation Ratio (%)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Total compensation as a percentage of revenue",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "AdvisorCompensationPercentage",
+                    "propSetMap": {
+                        "label": "Advisor Compensation Percentage (%)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Advisor compensation as a percentage of revenue",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "DirectExpensesPercentage",
+                    "propSetMap": {
+                        "label": "Direct Expenses Percentage (%)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Direct expenses as a percentage of revenue",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "ClientRetentionRevenuePercentage",
+                    "propSetMap": {
+                        "label": "Client Retention Revenue Percentage (%)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Revenue from existing clients as a percentage of total revenue",
+                        "controlWidth": 12
+                    }
+                }
+            ]
+        },
+        {
+            "type": "Step",
+            "name": "FirmGrowth",
+            "propSetMap": {
+                "label": "Firm Growth",
+                "validationRequired": true,
+                "previousLabel": "Previous",
+                "previousWidth": 3,
+                "nextLabel": "Next",
+                "nextWidth": 3,
+                "instruction": "Enter information about your firm's growth metrics.",
+                "showPersistentComponent": [
+                    true,
+                    false
+                ],
+                "defaultValue": "{}"
+            },
+            "elements": [
+                {
+                    "type": "Number",
+                    "name": "RevenueGrowthRate",
+                    "propSetMap": {
+                        "label": "Revenue Growth Rate (%)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Year-over-year revenue growth rate",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "AUMGrowthRate",
+                    "propSetMap": {
+                        "label": "AUM Growth Rate (%)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Year-over-year AUM growth rate",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "ClientGrowthRate",
+                    "propSetMap": {
+                        "label": "Client Growth Rate (%)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Year-over-year client growth rate",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "AdvisorGrowthRate",
+                    "propSetMap": {
+                        "label": "Advisor Growth Rate (%)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Year-over-year advisor growth rate",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "AdvisorTurnoverRate",
+                    "propSetMap": {
+                        "label": "Advisor Turnover Rate (%)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Percentage of advisors who left the firm during the year",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "NumberOfClientReferrals",
+                    "propSetMap": {
+                        "label": "Number of Client Referrals",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Number of referrals received from existing clients",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "ReferralAcquisitionPercentage",
+                    "propSetMap": {
+                        "label": "Referral Acquisition Percentage (%)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Percentage of new clients acquired through referrals",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "NumberOfAccountsOpened",
+                    "propSetMap": {
+                        "label": "Number of Accounts Opened",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Total number of new accounts opened during the year",
+                        "controlWidth": 12
+                    }
+                }
+            ]
+        },
+        {
+            "type": "Step",
+            "name": "OperationsAndServiceLevels",
+            "propSetMap": {
+                "label": "Operations and Service Levels",
+                "validationRequired": true,
+                "previousLabel": "Previous",
+                "previousWidth": 3,
+                "nextLabel": "Next",
+                "nextWidth": 3,
+                "instruction": "Enter information about your firm's operational efficiency and service levels.",
+                "showPersistentComponent": [
+                    true,
+                    false
+                ],
+                "defaultValue": "{}"
+            },
+            "elements": [
+                {
+                    "type": "Number",
+                    "name": "ClientsPerAdvisor",
+                    "propSetMap": {
+                        "label": "Clients per Advisor",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Average number of clients per advisor",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "SupportStaffPerAdvisor",
+                    "propSetMap": {
+                        "label": "Support Staff per Advisor",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Ratio of support staff to advisors",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "RevenuePerAdvisor",
+                    "propSetMap": {
+                        "label": "Revenue per Advisor",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Average revenue generated per advisor",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "RevenuePerClient",
+                    "propSetMap": {
+                        "label": "Revenue per Client",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Average revenue generated per client",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "ProfitPerAdvisor",
+                    "propSetMap": {
+                        "label": "Profit per Advisor",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Average profit generated per advisor",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "AverageClientTenure",
+                    "propSetMap": {
+                        "label": "Average Client Tenure (Years)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Average number of years clients have been with the firm",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "ClientOnboardingTime",
+                    "propSetMap": {
+                        "label": "Client Onboarding Time (Days)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Average days to onboard a new client",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "NumberOfServiceRequests",
+                    "propSetMap": {
+                        "label": "Number of Service Requests",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Total number of service requests received",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "NumberOfResolvedServiceRequests",
+                    "propSetMap": {
+                        "label": "Number of Resolved Service Requests",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Number of service requests resolved during the year",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "ServiceRequestResolutionRate",
+                    "propSetMap": {
+                        "label": "Service Request Resolution Rate (%)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Percentage of service requests successfully resolved",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "AverageResponseTime",
+                    "propSetMap": {
+                        "label": "Average Response Time (Hours)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Average time to respond to client inquiries",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "NumberOfServiceRequestsHandled",
+                    "propSetMap": {
+                        "label": "Service Requests Handled per Staff",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Average number of service requests handled per staff member",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "NumberOfTransactionsProcessed",
+                    "propSetMap": {
+                        "label": "Number of Transactions Processed",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Total number of transactions processed during the year",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "NumberOfClientComplaints",
+                    "propSetMap": {
+                        "label": "Number of Client Complaints",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Total number of client complaints received",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "ClientComplaintRatio",
+                    "propSetMap": {
+                        "label": "Client Complaint Ratio (%)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Number of complaints as a percentage of total clients",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "NumberOfComplianceViolations",
+                    "propSetMap": {
+                        "label": "Number of Compliance Violations",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Total number of compliance violations during the year",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "ClientSatisfactionScoreCSAT",
+                    "propSetMap": {
+                        "label": "Client Satisfaction Score (CSAT)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Average client satisfaction score (0-100)",
+                        "controlWidth": 12
+                    }
+                },
+                {
+                    "type": "Number",
+                    "name": "NetPromoterScoreNPS",
+                    "propSetMap": {
+                        "label": "Net Promoter Score (NPS)",
+                        "required": false,
+                        "placeholder": "0",
+                        "helpText": "Net Promoter Score (-100 to 100)",
+                        "controlWidth": 12
+                    }
+                }
+            ]
+        },
+        {
+            "type": "Step",
+            "name": "ReviewAndSubmit",
+            "propSetMap": {
+                "label": "Review and Submit",
+                "validationRequired": true,
+                "previousLabel": "Previous",
+                "previousWidth": 3,
+                "nextLabel": "Submit",
+                "nextWidth": 3,
+                "instruction": "Please review your data before final submission.",
+                "showPersistentComponent": [
+                    true,
+                    false
+                ],
+                "defaultValue": "{}"
+            },
+            "elements": [
+                {
+                    "type": "Review",
+                    "name": "DataReview",
+                    "propSetMap": {
+                        "label": "Data Review",
+                        "reviewLabel": "Review your submission",
+                        "reviewMode": "simple",
+                        "excludeLabels": [],
+                        "includeLabels": []
+                    }
+                },
+                {
+                    "type": "DataRaptor Post Action",
+                    "name": "SaveBenchmarkSubmission",
+                    "propSetMap": {
+                        "label": "Save Benchmark Submission",
+                        "dataRaptor": "SaveBenchmarkSubmission_Load",
+                        "executeOnNextStep": true,
+                        "ignoreCache": false,
+                        "show": {
+                            "group": {
+                                "operator": "AND",
+                                "rules": []
+                            }
+                        },
+                        "disOnTplt": false,
+                        "message": {},
+                        "pubsub": false
+                    }
+                }
+            ]
+        }
+    ]
+} 

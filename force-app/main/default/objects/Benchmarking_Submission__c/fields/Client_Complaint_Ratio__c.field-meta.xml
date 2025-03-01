@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Client_Complaint_Ratio__c</fullName>
+    <description>Number of complaints per 100 clients - automatically calculated</description>
+    <externalId>false</externalId>
+    <formula>IF(Number_of_Clients__c > 0, (Number_of_Client_Complaints__c / Number_of_Clients__c) * 100, null)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Client Complaint Ratio</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+</CustomField>

@@ -4,6 +4,23 @@
     "**/bower_components": true,
     "**/.sfdx": true
   },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/.sfdx": true,
+    "**/node_modules": true,
+    "**/.prettier*": true,
+    "**/.eslint*": true,
+    "**/.husky": true,
+    "**/.github": false,
+    "**/coverage": true,
+    "**/.nyc_output": true,
+    "**/*.tsbuildinfo": true,
+    "**/.vscode-test": true
+  },
   "[apex]": {
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
@@ -16,11 +33,16 @@
     "editor.detectIndentation": false,
     "editor.tabSize": 2
   },
+  "[xml]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "[json]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
   "salesforce.einsteinForDevelopers.advanced": {
     "enableEinsteinAnalytics": true
   },
-  "workbench.colorCustomizations": {
-    "statusBar.background": "#2f53a8",
-    "activityBar.background": "#2f53a8"
-  }
+  "workbench.colorCustomizations": {}
 }

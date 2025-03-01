@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Status_Changes</fullName>
+    <active>true</active>
+    <description>Prevents community users from setting submission status to 'Processed' or 'Error'</description>
+    <errorConditionFormula>AND(
+        ISCHANGED(Submission_Status__c),
+        OR(
+            ISPICKVAL(Submission_Status__c, "Processed"),
+            ISPICKVAL(Submission_Status__c, "Error")
+        ),
+        $Profile.Name = "Benchmarking Participant Profile"
+    )</errorConditionFormula>
+    <errorDisplayField>Submission_Status__c</errorDisplayField>
+    <errorMessage>You are not authorized to change the submission status to this value.</errorMessage>
+</ValidationRule> 

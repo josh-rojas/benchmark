@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Client_Satisfaction_Score_CSAT__c</fullName>
-    <description>Client Satisfaction Score (CSAT) on a scale of 1-10</description>
+    <description>Client Satisfaction Score (CSAT) from 1-10 where 10 is highest</description>
     <externalId>false</externalId>
     <label>Client Satisfaction Score (CSAT)</label>
     <precision>3</precision>
@@ -10,10 +10,4 @@
     <trackTrending>false</trackTrending>
     <type>Number</type>
     <unique>false</unique>
-    <valueSet>
-        <valueSetDefinition>
-            <minValue>1</minValue>
-            <maxValue>10</maxValue>
-        </valueSetDefinition>
-    </valueSet>
-</CustomField> 
+</CustomField>

@@ -1,0 +1,50 @@
+{
+    "type": "DataRaptor",
+    "dataPackType": "DataRaptor",
+    "name": "GetFirmIdentifier_Extract",
+    "masterLabel": "Get Firm Identifier",
+    "description": "Extract the benchmarking firm information based on the current user's account",
+    "extractionType": "Query",
+    "extractionPath": "",
+    "inputType": "JSON",
+    "outputType": "JSON",
+    "defaultOutputDRExtract": "",
+    "overrideKey": "",
+    "dataRaptorType": "Extract",
+    "objectAPIName": "Benchmarking_Firm__c",
+    "filters": [{
+        "isDrilldown": false,
+        "field": "Id",
+        "operator": "=",
+        "sequence": 1,
+        "value": "%recordId%",
+        "active": true
+    }],
+    "extractionOutputType": "JSON",
+    "extractionOutputJSON": {
+        "firmInfo": [{
+            "Firm_Identifier__c": "{Firm_Identifier__c}",
+            "Industry_Segment__c": "{Industry_Segment__c}",
+            "Firm_Size_AUM_Range__c": "{Firm_Size_AUM_Range__c}",
+            "Geographic_Region__c": "{Geographic_Region__c}",
+            "Business_Model__c": "{Business_Model__c}",
+            "Firm_Structure__c": "{Firm_Structure__c}",
+            "Founding_Year__c": "{Founding_Year__c}",
+            "Data_Sharing_Agreement__c": "{Data_Sharing_Agreement__c}",
+            "Last_Submission_Date__c": "{Last_Submission_Date__c}"
+        }]
+    },
+    "outputJSONPath": "",
+    "previewMode": "Query",
+    "apexAssetDescription": "",
+    "chainable": false,
+    "isIdMapType": false,
+    "targetOutDocuSignTemplateId": "",
+    "autoHashIdent": false,
+    "useAssignmentRules": false,
+    "hasNameConflict": false,
+    "version": 1,
+    "exportKey": "GetFirmIdentifier_Extract",
+    "query": "SELECT Id, Firm_Identifier__c, Industry_Segment__c, Firm_Size_AUM_Range__c, Geographic_Region__c, Business_Model__c, Firm_Structure__c, Founding_Year__c, Data_Sharing_Agreement__c, Last_Submission_Date__c FROM Benchmarking_Firm__c WHERE Id = '%recordId%'",
+    "active": true
+} 

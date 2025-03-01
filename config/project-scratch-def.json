@@ -1,13 +1,101 @@
 {
-  "orgName": "joshsmbp company",
-  "edition": "Developer",
-  "features": ["EnableSetPasswordInApi"],
+  "orgName": "FSC Premium Scratch Org",
+  "description": "Premium installation of the current release of FSC",
+  "country": "US",
+  "edition": "Enterprise",
+  "hasSampleData": true,
+  "language": "en_US",
+  "features": [
+      "EnableManageIdConfUI",
+      "EnableSetPasswordInApi",
+      "AccountInspection",
+      "AnalyticsAdminPerms",
+      "ArcGraphCommunity",
+      "Assessments",
+      "BusinessRulesEngine",
+      "Communities",
+      "ContactsToMultipleAccounts",
+      "DataProcessingEngine",
+      "DocumentChecklist",
+      "EinsteinAnalyticsPlus",
+      "EinsteinRecommendationBuilder",
+      "EinsteinSearch",
+      "FinancialServicesUser:10",
+      "FinancialServicesInsuranceUser",
+      "FSCServiceProcess",
+      "FSCAlertFramework",
+      "HighVelocitySales",
+      "IndustriesActionPlan",
+      "IndustriesSalesExcellenceAddOn",
+      "IndustriesServiceExcellenceAddOn",
+      "IndustriesBranchManagement",
+      "InsuranceCalculationUser",
+      "InsurancePolicyAdmin:10",
+      "Interaction",
+      "Knowledge",
+      "LightningServiceConsole",
+      "LiveAgent",
+      "LiveMessage",
+      "Macros",
+      "MarketingUser",
+      "OmniStudioDesigner",
+      "OmnistudioMetadata",
+      "OmniStudioRuntime",
+      "PersonAccounts",
+      "PlatformEncryption",
+      "RecordTypes",
+      "SalesCloudEinstein",
+      "SalesforceContentUser",
+      "SalesUser",
+      "SecurityEventEnabled",
+      "ServiceCloudVoicePartnerTelephony:10",
+      "ServiceUser",
+      "SharedActivities",
+      "Sites",
+      "StateAndCountryPicklist",
+      "SurveyAdvancedFeatures",
+      "WorkThanksPref" 
+  ],
   "settings": {
-    "lightningExperienceSettings": {
-      "enableS1DesktopEnabled": true
-    },
-    "mobileSettings": {
-      "enableS1EncryptedStoragePref2": false
-    }
+      "chatterSettings": {
+          "enableChatter": true
+      },
+      "campaignSettings": {
+          "enableCampaignInfluence2": true
+      },
+      "communitiesSettings": {
+          "enableNetworksEnabled": true
+      },
+      "nameSettings": {
+          "enableMiddleName": true,
+          "enableNameSuffix": true
+      },
+      "lightningExperienceSettings": {
+          "enableS1DesktopEnabled": true
+      },
+      "industriesSettings": {
+          "enableIndustriesAssessment": true,
+          "enableDiscoveryFrameworkMetadata": true
+      },
+      "omniChannelSettings": {
+          "enableOmniChannel": true
+      },
+      "securitySettings": {
+          "sessionSettings": {
+              "sessionTimeout": "TwelveHours"
+          }
+      },
+      "mobileSettings": {
+          "enableS1EncryptedStoragePref2": false
+      },
+      "apexSettings": {
+          "enableApexApprovalLockUnlock": true
+      },
+      "enhancedNotesSettings": {
+          "enableEnhancedNotes": true
+      },
+      "userManagementSettings": {
+          "enableNewProfileUI": true
+      }
   }
 }

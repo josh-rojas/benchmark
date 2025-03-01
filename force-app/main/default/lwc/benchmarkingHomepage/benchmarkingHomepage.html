@@ -1,0 +1,101 @@
+<template>
+    <div class="benchmarking-container">
+        <!-- Header -->
+        <div class="header-container">
+            <lightning-card title={welcomeMessage} icon-name="standard:dashboard">
+                <div slot="actions">
+                    <lightning-button label="Submit Data" variant="brand" onclick={navigateToSubmit}></lightning-button>
+                    <lightning-button label="View Benchmarks" variant="neutral" class="slds-m-left_x-small" onclick={navigateToResults}></lightning-button>
+                </div>
+            </lightning-card>
+        </div>
+
+        <!-- Loading Spinner -->
+        <template if:true={isLoading}>
+            <div class="spinner-container">
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+        <!-- Error Display -->
+        <template if:true={error}>
+            <div class="error-container">
+                <lightning-card title="Error" icon-name="utility:error">
+                    <p class="slds-p-around_medium">{error}</p>
+                </lightning-card>
+            </div>
+        </template>
+
+        <!-- Main Content -->
+        <template if:false={isLoading}>
+            <div class="content-container">
+                <!-- Welcome Section -->
+                <lightning-card title="Benchmarking Platform" icon-name="standard:chart">
+                    <div class="slds-p-around_medium">
+                        <p class="slds-text-heading_small slds-p-bottom_medium">
+                            Welcome to the Beacon Strategies Benchmarking Platform
+                        </p>
+                        <p class="slds-text-body_regular">
+                            The Benchmarking Platform allows financial advisory firms to confidentially submit their operational and financial metrics
+                            and receive customized benchmark reports comparing their performance to industry peers.
+                        </p>
+                        <p class="slds-text-body_regular slds-p-top_small">
+                            All submitted data is anonymized and securely stored.
+                        </p>
+                    </div>
+                </lightning-card>
+
+                <!-- Last Submission Info (if available) -->
+                <template if:true={hasSubmissionHistory}>
+                    <div class="slds-p-top_medium">
+                        <lightning-card title="Your Submission History" icon-name="standard:record">
+                            <div class="slds-p-around_medium">
+                                <p>
+                                    Your last benchmark data was submitted on <lightning-formatted-date-time 
+                                        value={lastSubmission.Submission_Date__c} 
+                                        year="numeric"
+                                        month="long"
+                                        day="numeric"
+                                        hour="2-digit"
+                                        minute="2-digit">
+                                    </lightning-formatted-date-time>
+                                </p>
+                                <p class="slds-p-top_small">
+                                    Submission Year: <lightning-formatted-number value={lastSubmission.Submission_Year__c}></lightning-formatted-number>
+                                </p>
+                                <p class="slds-p-top_small">
+                                    Status: <span class="submission-status">{lastSubmission.Submission_Status__c}</span>
+                                </p>
+                                <div class="slds-p-top_medium">
+                                    <lightning-button label="Submit New Data" variant="brand" onclick={navigateToSubmit}></lightning-button>
+                                </div>
+                            </div>
+                        </lightning-card>
+                    </div>
+                </template>
+
+                <!-- Quick Links and Resources -->
+                <div class="slds-p-top_medium">
+                    <lightning-card title="Resources" icon-name="standard:education">
+                        <div class="slds-p-around_medium">
+                            <ul class="slds-has-dividers_around-space">
+                                <li class="slds-item">
+                                    <a href="#" class="slds-text-link">Benchmarking FAQ</a>
+                                </li>
+                                <li class="slds-item">
+                                    <a href="#" class="slds-text-link">Data Collection Guide</a>
+                                </li>
+                                <li class="slds-item">
+                                    <a href="#" class="slds-text-link">Benchmark Methodology</a>
+                                </li>
+                                <li class="slds-item">
+                                    <a href="#" class="slds-text-link">Contact Support</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </lightning-card>
+                </div>
+            </div>
+        </template>
+    </div>
+</template> 

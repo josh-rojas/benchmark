@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Consistency_Check</fullName>
+    <active>true</active>
+    <description>Ensures data consistency for various metrics</description>
+    <errorConditionFormula>OR(
+        AND(
+            NOT(ISBLANK(Revenue_Previous_Year__c)),
+            Revenue_Previous_Year__c > Total_Revenue__c
+        ),
+        AND(
+            NOT(ISBLANK(AUM_PreviousYear__c)),
+            AUM_PreviousYear__c > AUM__c
+        ),
+        AND(
+            NOT(ISBLANK(Recurring_Revenue__c)),
+            NOT(ISBLANK(Non_Recurring_Revenue__c)),
+            (Recurring_Revenue__c + Non_Recurring_Revenue__c) > Total_Revenue__c
+        ),
+        AND(
+            NOT(ISBLANK(Direct_Expenses__c)),
+            NOT(ISBLANK(Compensation_Expenses__c)),
+            NOT(ISBLANK(Occupancy_Expenses__c)),
+            NOT(ISBLANK(Technology_Expenses__c)),
+            NOT(ISBLANK(Marketing_Sales_Expenses__c)),
+            NOT(ISBLANK(Other_Operating_Expenses__c)),
+            (Direct_Expenses__c + Compensation_Expenses__c + Occupancy_Expenses__c + Technology_Expenses__c + Marketing_Sales_Expenses__c + Other_Operating_Expenses__c) > Total_Operating_Expenses__c
+        )
+    )</errorConditionFormula>
+    <errorMessage>Please check your data for consistency: 
+- Previous year values should not be greater than current year values
+- Component revenues should not exceed total revenue
+- Component expenses should not exceed total operating expenses</errorMessage>
+</ValidationRule> 

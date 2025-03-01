@@ -1,0 +1,31 @@
+{
+  "activeBrandingSetId": "2e5f5982-a551-4563-8f8c-cbcef3bc1a91",
+  "customCSS": "",
+  "developerName": "Benchmarking_Platform",
+  "id": "8b9d5e7c-3fc8-4bab-a318-b21ed8a75cd5",
+  "label": "Beacon Benchmarking",
+  "layouts": {
+    "Inner": "0DP4x00000001Gr",
+    "Login": "0DP4x00000001Gw",
+    "ServiceNotAvailable": "0DP4x00000001H1"
+  },
+  "type": "theme",
+  "views": {
+    "error": {
+      "id": "d4a8d68e-bcf9-4c53-8db7-f6f3c69e5a17",
+      "label": "Error"
+    },
+    "home": {
+      "id": "96c11ae2-b50b-4b9d-b27c-452be5346cc1",
+      "label": "Home"
+    },
+    "login": {
+      "id": "9e7b71c8-6cbf-46ae-8ba5-37c3bffcdd28",
+      "label": "Login"
+    },
+    "tooManyRequests": {
+      "id": "51b7b4c3-1c3e-4cf4-be05-2c40c34c3107",
+      "label": "Too Many Requests"
+    }
+  }
+} 

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Profile for internal staff administering the benchmarking platform</description>
+    <custom>true</custom>
+    
+    <!-- Object Permissions -->
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Benchmarking_Submission__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Benchmarking_Firm__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Benchmark_Result__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    
+    <!-- User Permissions -->
+    <userPermissions>
+        <enabled>true</enabled>
+        <n>ManageExperienceCloud</n>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <n>ManageCssUsers</n>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <n>ViewSetup</n>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <n>RunReports</n>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <n>ViewRoles</n>
+    </userPermissions>
+</Profile> 
