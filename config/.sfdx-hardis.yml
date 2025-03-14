@@ -1,0 +1,7 @@
+projectName: Benchmark
+devHubAlias: DevHub_Benchmark
+developmentBranch: build
+autoCleanTypes:
+  - destructivechanges
+  - flowPositions
+  - minimizeProfiles

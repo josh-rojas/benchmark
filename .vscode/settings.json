@@ -1,0 +1,26 @@
+{
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/.sfdx": true
+  },
+  "[apex]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2
+  },
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2
+  },
+  "salesforce.einsteinForDevelopers.advanced": {
+    "enableEinsteinAnalytics": true
+  },
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#2f53a8",
+    "activityBar.background": "#2f53a8"
+  }
+}

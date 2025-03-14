@@ -1,0 +1,34 @@
+{
+  "orgName": "Sample Org",
+  "edition": "Enterprise",
+  "features": [
+    "EnableSetPasswordInApi",
+    "PersonAccounts",
+    "OmniStudioRuntime",
+    "OmniStudioDesigner",
+    "Einstein1AIPlatform",
+    "RecordTypes",
+    "SalesUser",
+    "ServiceCloud",
+    "SurveyAdvancedFeatures",
+    "Sites",
+    "SalesforcePricing",
+    "SalesforceContentUser",
+    "SalesCloudEinstein"
+  ],
+  "settings": {
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
+    },
+    "einsteinGptSettings": {
+      "enableEinsteinGptPlatform": true
+    },
+    "surveySettings": {
+      "enableSurvey": true,
+      "enableAdvancedSurveyFeatures": true
+    }
+  }
+}
